@@ -1,5 +1,6 @@
 #include<stdio.h>
 
+//structure for a burger order
 struct burger
 {
   const char *name;
@@ -9,6 +10,7 @@ struct burger
   int priceB;
 };
 
+//structure for if a customer wants a pizza
 struct pizza
 {
   const char *name;
@@ -18,6 +20,7 @@ struct pizza
   int priceP;
 };
 
+//toString for the burger structure
 void toStringB(struct burger customer)
 {
   printf("Name: %s \n", customer.name);
@@ -27,6 +30,7 @@ void toStringB(struct burger customer)
   printf("TOTAL: $%d\n", customer.priceB);
 }
 
+//toString for the pizza structure
 void toStringP(struct pizza customer)
 {
   printf("Name: %s \n", customer.name);
@@ -47,8 +51,11 @@ int main()
   scanf("%d", &firstChoice);
   int pricee = 0;
 
+//this if statement is for when the customer wants a burger
   if(firstChoice == 1)
   {
+    //price is only for a burger and not conditional on amount of toppingsB
+    //begins series of questions for toppings, drink, and a side
     pricee += 7;
     char toppingB[20];
     printf("Do you want lettuce, tomato, or cheese?\n");
@@ -77,13 +84,18 @@ int main()
       scanf("%s", sideB);
     }
 
+//initializes structure for the customer if they want a burger
     struct burger customer = {Cname, toppingB, drinkB, sideB, pricee};
     toStringB(customer);
 
   }
 
+//this if statement is for if the customer wants a pizza
   if(firstChoice == 2)
   {
+
+    //price is only for a pizza and not conditional on amount of toppingsB
+    //begins series of questions for toppings, drink, and a side
     pricee += 10;
     char toppingP[20];
     printf("Do you want pepperoni, sausage, or mushroom?\n");
@@ -112,6 +124,7 @@ int main()
       scanf("%s", sideP);
     }
 
+//initializes structure for the customer if they want a pizza
     struct pizza customer = {Cname, toppingP,drinkP, sideP, pricee};
     toStringP(customer);
 
